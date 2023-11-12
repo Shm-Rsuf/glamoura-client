@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* COMMON STYLES */
+.sp {
+  @apply py-10;
+}
+
+.eq {
+  transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 /* TYPOGRAPHY STYLES */
 h1 {
   @apply text-6xl font-medium;
@@ -21,4 +30,21 @@ p {
 
 small {
   @apply text-xs font-bold tracking-widest;
+}
+
+/* SWIPER STYLES */
+.swiper-button-next,
+.swiper-button-prev {
+    right:10px;
+    padding: 30px;
+    color: rgb(0, 145, 181) !important;
+    fill: rgb(0, 145, 181) !important;
+    stroke: rgb(0, 145, 181) !important;
+}
+
+.swiper-pagination-bullet { /** Stylization of bookmarks that are not selected */
+  background-color: rgb(0, 145, 181) !important;
+}
+.swiper-pagination-bullet-active { /** Marker styling of selected image in carousel */
+  background-color: rgb(0, 145, 181) !important;
 }
