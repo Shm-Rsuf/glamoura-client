@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { data } from "@/data/sliderContents";
 import Image from "next/image";
 import OverLay from "@/components/ui/OverLay";
+import Link from "next/link";
 
 const Slider = () => {
   return (
@@ -29,6 +30,11 @@ const Slider = () => {
             <SwiperSlide key={slide.image} className="w-full h-full relative">
                 <Image width={2700} height={6000} src={slide.image} alt={slide.headings} priority className="w-full h-full object-cover"/>
                 <OverLay/>
+                <div className="container sp absolute top-0 left-0 right-0 bottom-0 h-full w-full text-white space-y-5 max-w-6xl">
+                  <h1>{slide.headings}</h1>
+                  <p>{slide.subHeadings}</p>
+                  <Link href="/beauty-packages">Browse Beauty Packages</Link>
+                </div>
             </SwiperSlide>
           ))
         }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./ui/Button";
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
           <li className="cursor-pointer duration-300 f">Link 3</li>
         </ul>
       </div>
-      <button className="right">Sign in</button>
+      <Button className="right">Sign in</Button>
     </nav>
     </header>
     
