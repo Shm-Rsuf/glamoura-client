@@ -6,10 +6,11 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css/pagination";
 import { data } from "@/data/sliderContents";
 import Image from "next/image";
+import OverLay from "@/components/ui/OverLay";
 
 const Slider = () => {
   return (
-    <section className="h-[calc(100vh-5rem)]">
+    <section className="h-[calc(100vh-5rem)] w-full">
       <Swiper
         navigation={true}
         pagination={{ clickable: true }}
@@ -25,8 +26,9 @@ const Slider = () => {
       >
         {
           data && data.length >0 && data.map(slide=>(
-            <SwiperSlide key={slide.image} className="w-full h-full">
+            <SwiperSlide key={slide.image} className="w-full h-full relative">
                 <Image width={2700} height={6000} src={slide.image} alt={slide.headings} priority className="w-full h-full object-cover"/>
+                <OverLay/>
             </SwiperSlide>
           ))
         }
