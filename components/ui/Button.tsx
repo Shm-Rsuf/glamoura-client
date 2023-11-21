@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 
-export const buttonVariants = cva("eq inline-block text-center whitespace-nowrap px-4 py-2 border rounded-md text-lg capitalize disabled:bg-gray disabled:text-black disabled:cursor-default disable:border-gray", {
+export const buttonVariants = cva("eq inline-block text-center whitespace-nowrap px-3 py-1 border rounded-md text-lg capitalize disabled:bg-gray disabled:text-black disabled:cursor-default disable:border-gray", {
   variants: {
     variant: {
      primary: "bg-black text-white border-black hover:bg-black/90 hover:border-black/90",
