@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 
-const buttonVariants = cva("…", {
+const buttonVariants = cva("eq inline-block text-center whitespace-nowrap px-4 py-2 border rounded-md text-lg capitalize disabled:bg-gray disabled:text-black disabled:cursor-default disable:border-gray", {
   variants: {
     variant: {
-     primary: "…",
+     primary: "",
      secondary: "…",
      danger: "",
      outline: "",
@@ -27,7 +27,7 @@ const buttonVariants = cva("…", {
 
   const Button:React.FC<ButtonProps> = ({onClick, type, disabled, children, variant, size, isLoading, ...props}) => {
   return (
-    <button onClick={onClick} type={type} disabled={disabled || isLoading} {...props} className={cn("inline-block bg-black text-white text-center whitespace-nowrap px-4 py-2 border border-rose-300 rounded-md text-lg capitalize disabled:bg-gray disabled:text-black disabled:cursor-not-allowed",buttonVariants({variant, size}))}>{children}</button>
+    <button onClick={onClick} type={type} disabled={disabled || isLoading} {...props} className={cn(isLoading && "flex gap-2.5 items-center", buttonVariants({variant, size}))}>{isLoading && < Loader2 size={20} className="animate-spin"/>}{children}</button>
   )
 }
 
