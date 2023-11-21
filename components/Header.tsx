@@ -17,7 +17,7 @@ const Header = () => {
           <li className="cursor-pointer duration-300 f">Link 3</li>
         </ul>
       </div>
-      <Button className="right">Sign in</Button>
+      <Button className="right" variant="primary">Sign in</Button>
     </nav>
     </header>
     

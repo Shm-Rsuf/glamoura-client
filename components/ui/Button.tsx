@@ -5,19 +5,19 @@ import { Loader2 } from "lucide-react";
 const buttonVariants = cva("eq inline-block text-center whitespace-nowrap px-4 py-2 border rounded-md text-lg capitalize disabled:bg-gray disabled:text-black disabled:cursor-default disable:border-gray", {
   variants: {
     variant: {
-     primary: "",
-     secondary: "…",
-     danger: "",
-     outline: "",
+     primary: "bg-black text-white border-black hover:bg-black/90 hover:border-black/90",
+     secondary: "bg-blue text-white border-blue hover:bg-blue/90 hover:border-blue/90",
+     danger: "bg-red text-white border-red hover:bg-red/90 hover:border-red/90",
+     outline: "bg-transparent text-black border-black hover:bg-black hover:text-white",
      },
     size: { 
-    auto: "…", 
-    full: "…" 
+    auto: "w-auto", 
+    full: "w-full" 
     },
   },
   defaultVariants: {
       variant: "primary",
-      size: "full",
+      size: "auto",
     },
   });
   
