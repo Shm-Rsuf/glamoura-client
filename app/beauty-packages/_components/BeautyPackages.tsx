@@ -1,13 +1,13 @@
-'use client';
-import SectionTitle from '@/components/ui/SectionTitle';
-import useFetch from '@/hooks/useFetch';
-import BeautyPackageCard from './BeautyPackageCard';
-import Loading from '@/components/ui/Loading';
-import Error from '@/components/ui/Error';
-import { beautyPackageType } from '@/types/beautyPackage';
+'use client'
+import SectionTitle from '@/components/ui/SectionTitle'
+import useFetch from '@/hooks/useFetch'
+import BeautyPackageCard from './BeautyPackageCard'
+import Loading from '@/components/ui/Loading'
+import Error from '@/components/ui/Error'
+import { beautyPackageType } from '@/types/beautyPackage'
 
 interface BeautyPackagesProps {
-  native?: boolean;
+  native?: boolean
 }
 
 const BeautyPackages: React.FC<BeautyPackagesProps> = ({ native }) => {
@@ -15,7 +15,7 @@ const BeautyPackages: React.FC<BeautyPackagesProps> = ({ native }) => {
     data: beauty_packages,
     error,
     isLoading,
-  } = useFetch('/api/beauty_packages');
+  } = useFetch('/api/beauty_packages')
 
   return (
     <section className='sp container'>
@@ -32,7 +32,7 @@ const BeautyPackages: React.FC<BeautyPackagesProps> = ({ native }) => {
         </div>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default BeautyPackages;
+export default BeautyPackages
