@@ -1,11 +1,11 @@
-import Specialists from "./_components/Specialists";
+import Specialists from './_components/Specialists'
 
 const SpecialistsPage = () => {
   return (
     <main>
-      <Specialists />
+      <Specialists native />
     </main>
-  );
-};
+  )
+}
 
-export default SpecialistsPage;
+export default SpecialistsPage
