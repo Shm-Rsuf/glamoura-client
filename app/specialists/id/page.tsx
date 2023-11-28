@@ -4,6 +4,7 @@ import Error from '@/components/ui/Error'
 import Loading from '@/components/ui/Loading'
 import useFetch from '@/hooks/useFetch'
 import { useRouter } from 'next/navigation'
+import SpecialistDetails from './_components/SpecialistDetails'
 const SpecialistsDeatailsPage = ({ params }: { params: { id: string } }) => {
   const {
     data: specialist,
@@ -25,6 +26,8 @@ const SpecialistsDeatailsPage = ({ params }: { params: { id: string } }) => {
           <Button onClick={() => router.back()}>Go Back</Button>
         </div>
       )}
+
+      {specialist && <SpecialistDetails specialist={specialist} />}
     </main>
   )
 }
