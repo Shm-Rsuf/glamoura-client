@@ -5,7 +5,7 @@ import Error from '@/components/ui/Error';
 import Loading from '@/components/ui/Loading';
 import useFetch from '@/hooks/useFetch';
 import { useRouter } from 'next/navigation';
-import BeautyPackagesItem from './_components/page';
+import BeautyPackagesItem from './_components/BeautyPackagesItem';
 
 const BeautyPackagesPageDetails = ({ params }: { params: { id: string } }) => {
   const {
