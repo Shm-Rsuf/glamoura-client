@@ -1,5 +1,5 @@
-import OverLay from '@/components/ui/OverLay'
-import Image from 'next/image'
+import OverLay from '@/components/ui/OverLay';
+import Image from 'next/image';
 
 const SignInPicture = () => {
   return (
@@ -9,6 +9,7 @@ const SignInPicture = () => {
         alt='signinImage'
         height={1280}
         width={720}
+        priority
         className='h-full w-full object-cover'
       />
       <OverLay />
@@ -16,7 +17,7 @@ const SignInPicture = () => {
         <h3>“Everything has beauty, but not everyone sees it.” —Confucius</h3>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignInPicture
+export default SignInPicture;
