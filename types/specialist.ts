@@ -1,5 +1,5 @@
-import { beautyPackageType } from "./beautyPackage";
-import { commonType } from "./common";
+import { beautyPackageType } from './beautyPackage';
+import { commonType } from './common';
 
 export type specialistType = {
   name: string;

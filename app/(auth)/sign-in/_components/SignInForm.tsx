@@ -1,7 +1,9 @@
 'use client';
 import Button from '@/components/ui/Button';
+import { axiosPost } from '@/lib/axiosPost';
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
+import toast from 'react-hot-toast';
 
 interface SignInFormData {
   email: string;
@@ -14,11 +16,24 @@ const SignInForm = () => {
     password: '',
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   /* handleSubmit */
   const handleSubmit = useCallback(
     async (e: React.SyntheticEvent) => {
       e.preventDefault();
-      console.log(formData);
+      setIsLoading(true);
+      const data = await axiosPost('/api/auth/login', formData);
+      if (data) {
+        setIsLoading(false);
+        setFormData({
+          email: '',
+          password: '',
+        });
+        toast.success('login successful.');
+      } else {
+        setIsLoading(false);
+      }
     },
     [formData]
   );
@@ -64,7 +79,7 @@ const SignInForm = () => {
             '
           />
         </div>
-        <Button type='submit' variant='secondary'>
+        <Button type='submit' variant='secondary' isLoading={isLoading}>
           Login
         </Button>
         <p>

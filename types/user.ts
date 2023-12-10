@@ -1,5 +1,5 @@
-import { bookingType } from "./booking";
-import { commonType } from "./common";
+import { bookingType } from './booking';
+import { commonType } from './common';
 
 export type userType = {
   name: string;
@@ -10,4 +10,4 @@ export type userType = {
   phoneNumber?: string;
   role: 'user' | 'admin';
   bookings: bookingType[];
-}& commonType;
+} & commonType;

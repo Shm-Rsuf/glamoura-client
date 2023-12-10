@@ -14,7 +14,7 @@ const SignInPicture = () => {
       />
       <OverLay />
       <div className='absolute bottom-0 left-0 right-0 top-0 z-[2] flex items-end p-10 text-center text-white'>
-        <h3>“Everything has beauty, but not everyone sees it.” —Confucius</h3>
+        <h3>“Everything has beauty, but not everyone sees it” — Confucius</h3>
       </div>
     </div>
   );
