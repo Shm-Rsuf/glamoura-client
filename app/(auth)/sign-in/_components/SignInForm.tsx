@@ -2,6 +2,7 @@
 import Button from '@/components/ui/Button';
 import { axiosPost } from '@/lib/axiosPost';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -17,6 +18,7 @@ const SignInForm = () => {
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   /* handleSubmit */
   const handleSubmit = useCallback(
@@ -31,11 +33,12 @@ const SignInForm = () => {
           password: '',
         });
         toast.success('login successful.');
+        router.push('/');
       } else {
         setIsLoading(false);
       }
     },
-    [formData]
+    [formData, router]
   );
 
   return (

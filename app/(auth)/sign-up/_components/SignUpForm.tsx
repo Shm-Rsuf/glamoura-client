@@ -1,7 +1,9 @@
 'use client';
 import Button from '@/components/ui/Button';
+import { photoUrlChecker } from '@/helpers/photoUrlChecker';
 import { axiosPost } from '@/lib/axiosPost';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -21,27 +23,36 @@ const SignUpForm = () => {
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   /* handleSubmit */
   const handleSubmit = useCallback(
     async (e: React.SyntheticEvent) => {
       e.preventDefault();
       setIsLoading(true);
-      const data = await axiosPost('/api/auth/register', formData);
-      if (data) {
-        setIsLoading(false);
-        setFormData({
-          name: '',
-          email: '',
-          password: '',
-          photoUrl: '',
-        });
-        toast.success('Register successful.');
+      const hasPermitted = photoUrlChecker(formData.photoUrl);
+
+      if (hasPermitted) {
+        const data = await axiosPost('/api/auth/register', formData);
+        if (data) {
+          setIsLoading(false);
+          setFormData({
+            name: '',
+            email: '',
+            password: '',
+            photoUrl: '',
+          });
+          toast.success('Register successful.');
+          router.push('/');
+        } else {
+          setIsLoading(false);
+        }
       } else {
         setIsLoading(false);
+        toast.error('Please paste a photo url from pixels/unplash/cloudinary');
       }
     },
-    [formData]
+    [formData, router]
   );
 
   return (
