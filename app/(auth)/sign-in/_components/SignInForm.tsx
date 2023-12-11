@@ -83,7 +83,7 @@ const SignInForm = () => {
           Login
         </Button>
         <p>
-          <span className='text-black/50'>Don&apos;t have an accoutn? </span>
+          <span className='text-black/50'>Don&apos;t have an account? </span>
           <Link href='/sign-up' className='link-item'>
             Register
           </Link>
