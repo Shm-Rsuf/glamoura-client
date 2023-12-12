@@ -2,10 +2,12 @@
 import Button from '@/components/ui/Button';
 import { photoUrlChecker } from '@/helpers/photoUrlChecker';
 import { axiosPost } from '@/lib/axiosPost';
+import { login } from '@/redux/features/auth/authSlice';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 
 interface SignUpFormData {
   name: string;
@@ -24,6 +26,7 @@ const SignUpForm = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   /* handleSubmit */
   const handleSubmit = useCallback(
@@ -42,6 +45,7 @@ const SignUpForm = () => {
             password: '',
             photoUrl: '',
           });
+          dispatch(login(data));
           toast.success('Register successful.');
           router.push('/');
         } else {
@@ -52,7 +56,7 @@ const SignUpForm = () => {
         toast.error('Please paste a photo url from pixels/unplash/cloudinary');
       }
     },
-    [formData, router]
+    [formData, router, dispatch]
   );
 
   return (
